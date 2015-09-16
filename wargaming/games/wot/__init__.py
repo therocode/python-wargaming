@@ -30,7 +30,7 @@ class API(BaseAPI):
         """
 
         super(API, self).__init__(application_id, language,
-                                  base_url='https://api.worldoftanks.com/wot/')
+                                  base_url='https://api.worldoftanks.eu/wot/')
 
     accounts = Accounts()
 
