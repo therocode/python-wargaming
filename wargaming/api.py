@@ -88,12 +88,13 @@ class BaseAPI(object):
 
         response = requests.get(url, headers={
             'User-Agent': settings.HTTP_USER_AGENT_HEADER,
-        }).json()
+        })  
 
-        if response['status'] == 'error':
-            raise RequestError(**response['error'])
+        if response.status_code != 200:
+            raise RequestError(response.status_code)
 
-        return response['data']
+        return response.content
+
 
     @staticmethod
     def prepare_language(value):
